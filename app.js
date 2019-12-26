@@ -5,19 +5,8 @@ const responseTime = require('response-time')
 const port = 3000
 
 app.use(responseTime(function (req, res, time) {
-  // Q.請問有辦法把我寫好的/config/check-req-method.js直接導入拿來用嗎?
-  if (req.url !== '/favicon.ico') {
-    const url = req.url
-    const method = req.method
-    date = new Date
-    const yy = date.getFullYear()
-    const mm = date.getMonth() + 1
-    const dd = date.getDate()
-    const hours = date.getHours()
-    const mins = date.getMinutes()
-    const secs = date.getSeconds()
-    console.log(yy, "-", mm, "-", dd, " ", hours,":", mins, ":", secs, "|",method, "from", url, "|", Math.round(time), 'ms')
-  }
+  // Q.請問這樣導入寫好的./config/check-req-method是正確的作法嗎?
+  checkReqMethod(req, res, time)
 }))
 
 // 列出全部 Todo
